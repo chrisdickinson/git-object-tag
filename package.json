@@ -1,0 +1,21 @@
+{
+  "name": "git-object-tag",
+  "version": "0.0.0",
+  "description": "parse and create git tag objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chrisdickinson/git-object-tag.js"
+  },
+  "keywords": [
+    "git",
+    "tag",
+    "object"
+  ],
+  "author": "Chris Dickinson <chris@neversaw.us>",
+  "license": "MIT",
+  "gitHead": "d881c7eb7056c8cfe8435804e797f96ff5e7d4ac"
+}
