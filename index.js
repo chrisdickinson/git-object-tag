@@ -55,6 +55,32 @@ proto.attr = function(attr) {
   return (this._attrs[attr] || []).slice()
 }
 
+proto.serialize = function() {
+  if(this._raw) {
+    return this._raw
+  }
+
+  var buffers = []
+    , keybuf
+    , blen
+    , buf
+
+  for(var key in this._attrs) {
+    keybuf = binary.from(key+' ', 'utf8')
+
+    for(var i = 0, len = this._attrs[key].length; i < len; ++i) {
+      buffers.push(keybuf)
+      buf = binary.from(this._attrs[key][i]+'\n', 'utf8')
+      buffers.push(buf) 
+    }
+  }
+
+  buf = binary.from('\n'+this._message, 'utf8')
+  buffers.push(buf)
+
+  return binary.join(buffers)
+}
+
 function read(buf) {
   var idx = 0
     , len = buf.length
